@@ -145,7 +145,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   if (state.status === "loading") {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-canvas">
+      <div className="flex min-h-dvh items-center justify-center bg-canvas">
         <Spinner label="Preparando tu espacio" />
       </div>
     );
@@ -154,7 +154,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   if (state.status === "unlinked" || state.status === "error") {
     const unlinked = state.status === "unlinked";
     return (
-      <div className="flex min-h-screen items-center justify-center bg-canvas p-6">
+      <div className="flex min-h-dvh items-center justify-center bg-canvas p-6">
         <div className="w-full max-w-md rounded-2xl border border-line bg-surface p-6 text-center shadow-card">
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-clay-soft text-clay">
             <Icon icon={unlinked ? UserX : AlertTriangle} className="h-5 w-5" />

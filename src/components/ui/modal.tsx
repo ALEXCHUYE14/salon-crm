@@ -41,7 +41,7 @@ export function Modal({ open, onClose, title, description, children, footer, siz
       <button type="button" aria-label="Cerrar" className="absolute inset-0 bg-ink/40" onClick={onClose} />
       <div
         className={cn(
-          "relative flex max-h-[92vh] w-full flex-col rounded-t-2xl border border-line bg-surface shadow-pop sm:rounded-2xl",
+          "relative flex max-h-[92dvh] w-full flex-col rounded-t-2xl border border-line bg-surface shadow-pop sm:rounded-2xl",
           sizeClasses[size],
         )}
       >

@@ -240,7 +240,34 @@ export function ReportsView() {
               {staffRows.length === 0 ? (
                 <EmptyState icon={Users} title="Sin datos" />
               ) : (
-                <div className="overflow-x-auto">
+                <>
+                {/* Tarjetas (móvil) */}
+                <ul className="divide-y divide-line md:hidden">
+                  {staffRows.map((r) => (
+                    <li key={r.staff_id} className="px-4 py-3 text-sm">
+                      <div className="flex items-baseline justify-between gap-3">
+                        <p className="truncate font-medium text-ink">{r.full_name}</p>
+                        <p className="shrink-0 text-xs text-muted">{r.services_count} servicios</p>
+                      </div>
+                      <dl className="mt-2 grid grid-cols-3 gap-2 text-xs">
+                        <div>
+                          <dt className="text-muted">Ventas</dt>
+                          <dd className="tabular-nums text-ink">{money(r.services_revenue)}</dd>
+                        </div>
+                        <div>
+                          <dt className="text-muted">Productos</dt>
+                          <dd className="tabular-nums text-ink">{money(r.products_revenue)}</dd>
+                        </div>
+                        <div className="text-right">
+                          <dt className="text-muted">Comisión</dt>
+                          <dd className="font-semibold tabular-nums text-ink">{money(r.commission)}</dd>
+                        </div>
+                      </dl>
+                    </li>
+                  ))}
+                </ul>
+                {/* Tabla (tableta/PC) */}
+                <div className="hidden overflow-x-auto md:block">
                   <table className="w-full min-w-[560px] text-sm">
                     <thead className="border-b border-line bg-surface-2/60 text-left text-xs uppercase tracking-wide text-muted">
                       <tr>
@@ -264,6 +291,7 @@ export function ReportsView() {
                     </tbody>
                   </table>
                 </div>
+                </>
               )}
             </Card>
 

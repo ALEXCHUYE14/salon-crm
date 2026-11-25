@@ -520,7 +520,7 @@ function capitalize(text: string): string {
 
 function Shell({ info, children }: { info?: PublicBookingInfo; children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-canvas">
+    <div className="min-h-dvh bg-canvas">
       <header className="border-b border-line bg-surface">
         <div className="mx-auto flex max-w-xl items-center gap-3 px-4 py-4">
           {info?.logo_url ? (

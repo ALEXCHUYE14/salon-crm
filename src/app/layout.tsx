@@ -6,11 +6,16 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: { default: "Gestión de Barbería y Salón", template: "%s · Gestión de Barbería y Salón" },
   description: "CRM, agenda, caja, comisiones e inventario para barberías y salones de belleza.",
+  applicationName: "Salón",
+  appleWebApp: { capable: true, title: "Salón", statusBarStyle: "default" },
+  icons: { icon: { url: "/icon.svg", type: "image/svg+xml" }, apple: "/icons/apple-touch-icon.png" },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  // Necesario para que env(safe-area-inset-*) tenga valor en iPhone (notch y barra de inicio).
+  viewportFit: "cover",
   themeColor: "#F7F5F0",
 };
 

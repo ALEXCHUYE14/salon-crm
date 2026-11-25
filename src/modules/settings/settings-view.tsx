@@ -653,7 +653,30 @@ function PermissionsSection({ draft, patch, footer }: SectionProps) {
       description="Controla qué módulos ve cada rol. El propietario siempre tiene acceso total; la base de datos aplica además reglas RLS por rol."
       footer={footer}
     >
-      <div className="overflow-x-auto">
+      {/* Lista por módulo (móvil) */}
+      <ul className="divide-y divide-line md:hidden">
+        {ALL_MODULES.map((module) => (
+          <li key={module} className="py-3">
+            <p className="text-sm font-medium text-ink">{MODULE_LABELS[module]}</p>
+            <div className="mt-1 flex flex-wrap gap-x-4">
+              {CONFIGURABLE_ROLES.map((role) => (
+                <label key={role} className="flex min-h-[44px] cursor-pointer items-center gap-2 text-sm text-ink">
+                  <input
+                    type="checkbox"
+                    className="h-5 w-5 accent-[#3F5E4D]"
+                    checked={(draft.role_permissions[role] ?? []).includes(module)}
+                    onChange={(e) => toggle(role, module, e.target.checked)}
+                  />
+                  {ROLE_LABELS[role]}
+                </label>
+              ))}
+            </div>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-2 text-xs text-muted md:hidden">{ROLE_LABELS.owner}: acceso total a todos los módulos.</p>
+      {/* Tabla (tableta/PC) */}
+      <div className="hidden overflow-x-auto md:block">
         <table className="w-full min-w-[520px] text-sm">
           <thead>
             <tr className="border-b border-line text-left text-xs uppercase tracking-wide text-muted">

@@ -161,7 +161,7 @@ export function PhotosPanel({ clientId }: { clientId: string }) {
           ) : undefined
         }
       >
-        {viewing && urls[viewing.path] ? <img src={urls[viewing.path]} alt="" className="mx-auto max-h-[70vh] w-auto rounded-lg" /> : null}
+        {viewing && urls[viewing.path] ? <img src={urls[viewing.path]} alt="" className="mx-auto max-h-[70dvh] w-auto rounded-lg" /> : null}
       </Modal>
     </Card>
   );

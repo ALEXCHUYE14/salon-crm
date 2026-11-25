@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 import { Icon } from "./icon";
 
 const controlBase =
-  "w-full rounded-lg border border-line bg-surface px-3 text-sm text-ink placeholder:text-muted/70 transition-colors " +
-  "focus:border-sage focus:outline-none focus:ring-2 focus:ring-sage/20 disabled:cursor-not-allowed disabled:bg-surface-2 disabled:text-muted";
+  "w-full rounded-lg border border-line bg-surface px-3 text-base text-ink placeholder:text-muted/70 transition-colors " +
+  "sm:text-sm focus:border-sage focus:outline-none focus:ring-2 focus:ring-sage/20 disabled:cursor-not-allowed disabled:bg-surface-2 disabled:text-muted";
 
 export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(function Input(
   { className, ...props },

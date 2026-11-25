@@ -612,7 +612,7 @@ export function CashView() {
           <Input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Buscar en el catálogo" className="pl-9" />
         </div>
       </div>
-      <div className="grid max-h-[65vh] grid-cols-2 gap-2 overflow-y-auto p-3 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
+      <div className="grid max-h-[65dvh] grid-cols-2 gap-2 overflow-y-auto p-3 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
         {catalogTab === "plans"
           ? plans
               .filter((p) => !term || p.name.toLowerCase().includes(term))

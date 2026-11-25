@@ -265,7 +265,40 @@ export function TeamView() {
             ) : summary.length === 0 ? (
               <EmptyState icon={CalendarRange} title="Sin movimientos en el periodo" />
             ) : (
-              <div className="overflow-x-auto">
+              <>
+              {/* Tarjetas (móvil) */}
+              <ul className="divide-y divide-line md:hidden">
+                {summary.map((r) => {
+                  const pending = r.commission_pending + r.tips_pending;
+                  return (
+                    <li key={r.staff_id} className="px-4 py-3 text-sm">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <p className="truncate font-medium text-ink">{r.full_name}</p>
+                          <p className="text-xs text-muted">{r.items_count} ítems · base {money(r.base_amount)}</p>
+                        </div>
+                        <div className="shrink-0 text-right">
+                          <p className={cn("font-semibold tabular-nums", pending > 0 ? "text-clay" : "text-muted")}>{money(pending)}</p>
+                          <p className="text-xs text-muted">por liquidar</p>
+                        </div>
+                      </div>
+                      <div className="mt-2 flex items-center justify-between gap-3">
+                        <p className="text-xs text-muted">
+                          Comisión <span className="tabular-nums text-ink">{money(r.commission_total)}</span> · propinas{" "}
+                          <span className="tabular-nums text-ink">{money(r.tips_total)}</span>
+                        </p>
+                        {isAdmin ? (
+                          <Button size="sm" variant={pending > 0 ? "primary" : "ghost"} disabled={pending <= 0} onClick={() => setSettleTarget(r)}>
+                            Liquidar
+                          </Button>
+                        ) : null}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+              {/* Tabla (tableta/PC) */}
+              <div className="hidden overflow-x-auto md:block">
                 <table className="w-full min-w-[720px] text-sm">
                   <thead className="border-b border-line bg-surface-2/60 text-left text-xs uppercase tracking-wide text-muted">
                     <tr>
@@ -302,6 +335,7 @@ export function TeamView() {
                   </tbody>
                 </table>
               </div>
+              </>
             )}
           </Card>
         </>

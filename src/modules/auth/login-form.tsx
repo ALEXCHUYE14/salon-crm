@@ -81,10 +81,10 @@ export function LoginForm() {
   const isSignin = mode === "signin";
 
   return (
-    <div className="grid min-h-screen grid-cols-1 bg-canvas lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+    <div className="grid min-h-dvh grid-cols-1 bg-canvas lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
       <PhotoPanel />
 
-      <main className="flex min-h-screen min-w-0 flex-col px-5 py-8 sm:px-10 lg:px-14">
+      <main className="flex min-h-dvh min-w-0 flex-col px-5 py-8 sm:px-10 lg:px-14">
         <header className="flex items-center gap-3">
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-sage text-white">
             <Icon icon={Scissors} className="h-[18px] w-[18px]" />

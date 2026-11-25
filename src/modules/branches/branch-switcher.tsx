@@ -16,7 +16,7 @@ export function BranchSwitcher({ className, compact = false }: { className?: str
       <select
         value={branch.id}
         onChange={(e) => setBranchId(e.target.value)}
-        className="min-w-0 flex-1 truncate bg-transparent text-sm font-medium text-ink focus:outline-none"
+        className="min-w-0 flex-1 truncate bg-transparent text-base font-medium sm:text-sm text-ink focus:outline-none"
         aria-label="Sede de trabajo"
       >
         {branches.map((b) => (

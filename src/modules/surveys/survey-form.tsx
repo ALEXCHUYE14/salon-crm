@@ -42,7 +42,7 @@ export function SurveyForm({ token }: { token: string }) {
   }
 
   return (
-    <div className="flex min-h-screen items-start justify-center bg-canvas px-4 py-10 sm:items-center">
+    <div className="flex min-h-dvh items-start justify-center bg-canvas px-4 py-10 sm:items-center">
       <div className="w-full max-w-md rounded-2xl border border-line bg-surface p-6 shadow-card">
         {survey === null ? (
           <Spinner />
